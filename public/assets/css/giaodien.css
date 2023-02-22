@@ -1,0 +1,164 @@
+
+/* import font */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* reset css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.4s;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+}
+
+/* start */
+
+.main {
+  position: relative;
+}
+
+.main .title {
+  text-transform: uppercase;
+  padding: 10px 20px;
+  background-color: #fed330;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main:hover .title {
+  box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 50px;
+  font-weight: bold;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 150px;
+}
+
+.process {
+  width: 100%;
+  width: calc(100% / 14);
+}
+
+.content .line {
+  width: 100%;
+  position: relative;
+}
+
+.content .line::before {
+  position: absolute;
+  left: 0;
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid #11caf0;
+  background-color: #cff4fc;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+.content .line::after {
+  width: 100%;
+  height: 4px;
+  background-color: #11caf0;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  z-index: -1;
+  transition: all 0.4s;
+}
+.process:last-child .line::after {
+  content: none;
+}
+
+input:checked ~ .process .line::before {
+  border-color: #aaa;
+  background-color: #fff;
+}
+
+input:checked ~ .process .line::after {
+  background-color: #999;
+}
+
+input:checked + .process .line::before {
+  background-color: #11caf0;
+  border-color: #11caf0;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.placeName {
+  font-size: 12px;
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  white-space: nowrap;
+}
+
+.line:hover::before,
+.placeName:hover + .line::before {
+  transform: scale(1.3);
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tooltips {
+  visibility: hidden;
+  font-size: 12px;
+  z-index: -1;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  top: 30px;
+  left: -20px;
+  animation-name: fadeout;
+  animation-duration: 0.4s;
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.line:hover .tooltips,
+input:checked + .process .line .tooltips {
+  visibility: visible;
+  animation-name: fadein;
+  animation-duration: 0.4s;
+}
+
+.info {
+  font-size: 12px;
+  font-weight: bold;
+}
