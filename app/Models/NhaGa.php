@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class NhaGa extends Model
 {
     use HasFactory;
-    protected $table = 'nha_ga';
+    protected $table = 'nha_gas';
     protected $fillable = [
         'thu_tu',
         'ten_nha_ga',

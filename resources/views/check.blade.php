@@ -57,6 +57,7 @@
                         <th>Tuyến</th>
                         <th>Ga lên</th>
                         <th>Ga xuống</th>
+                        <th>Số lượng</th>
                         <th>Thành tiền</th>
                     </tr>
                 </thead>
@@ -101,6 +102,7 @@
                                                     <td>' + item.tuyen + '</td>\
                                                     <td>' + item.ga_len + '</td>\
                                                     <td>' + item.ga_xuong + '</td>\
+                                                    <td>' + item.so_luong + '</td>\
                                                     <td>' + item.thanh_tien.toLocaleString('vi-VN', {
                                 style: 'currency',
                                 currency: 'VND'
@@ -143,6 +145,7 @@
                                                     <td>' + item.tuyen + '</td>\
                                                     <td>' + item.ga_len + '</td>\
                                                     <td>' + item.ga_xuong + '</td>\
+                                                    <td>' + item.so_luong + '</td>\
                                                     <td>' + item.thanh_tien.toLocaleString('vi-VN', {
                                     style: 'currency',
                                     currency: 'VND'

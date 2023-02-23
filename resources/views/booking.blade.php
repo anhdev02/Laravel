@@ -35,6 +35,7 @@
 @section('content')
     <div class="container">
         <form id="bookingForm">
+
             <div class="row justify-content-center my-5 mx-3">
                 <div id="success_message"></div>
                 <div class="col-md-6">
@@ -80,6 +81,7 @@
                 </div>
             </div>
         </form>
+        <input id="abccc" type="hidden" value="{{$_SESSION['route'] ?? 1}}">
     </div>
 @endsection
 
@@ -227,14 +229,13 @@
                 },
                 submitHandler: function(form) {
                     event.preventDefault();
-                    // var current_time = new Date();
                     var data = {
                         'tuyen': $('#tuyen option:selected').text(),
                         'ga_len': $('#ga_len option:selected').text(),
                         'ga_xuong': $('#ga_xuong option:selected').text(),
+                        'so_luong': $('#so_luong_dat').val(),
                         'so_dien_thoai': $('#phone').val(),
                         'thanh_tien': parseInt($('#thanh_tien').data('thanh_tien')),
-                        // 'thoi_gian_dat': current_time,
                     }
 
 
@@ -247,7 +248,7 @@
 
                     $.ajax({
                         type: "POST",
-                        url: "/booking",
+                        url: "/bookings",
                         data: data,
                         dataType: "json",
                         success: function(response) {
@@ -256,12 +257,17 @@
                             $('#success_message').css('color', 'green');
                             $('#success_message').text(response.message);
                             // loadbang();
+                        },
+                        error: function (response){
+                            console.log(response);
                         }
                     });
 
 
                 }
             });
+
+            
         });
     </script>
 @endsection

@@ -41,7 +41,7 @@ th {
 .search-box button[type="submit"] {
     position: absolute;
     top: 115px;
-    left: 340px;
+    left: 380px;
     height: 40px;
     width: 40px;
     cursor: pointer;

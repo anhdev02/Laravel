@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tuyens', function (Blueprint $table) {
+        Schema::create('nha_gas', function (Blueprint $table) {
             $table->id();
-            $table->string('ten_tuyen');
-            $table->string('thoi_gian_hd');
-            $table->float('chieu_dai');
-            $table->float('gia_ve_toi_thieu');
-            $table->float('don_gia_ga');
-            $table->integer('tong_so_ga');
-            
+            $table->integer('ma_tuyen');
+            $table->foreign('ma_tuyen')->references('id')->on('tuyens')->onDelete('cascade');
+            $table->integer('thu_tu');
+            $table->string('ten_nha_ga');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tuyens');
+        Schema::dropIfExists('nha_gas');
     }
 };

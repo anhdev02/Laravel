@@ -64,43 +64,8 @@
             fetchroutes();
 
             function fetchroutes() {
+                const route_id = localStorage.getItem('route') ?? 1;
                 $('.loader').show();
-                $.ajax({
-                    type: "GET",
-                    url: "/get-route/" + 1,
-                    success: function(response) {
-                        $('.route-time').text(response.route.thoi_gian_hd);
-                        $('.route-length').text(response.route.chieu_dai + 'km');
-                    }
-                });
-                var tuyen = $('.title').text().substring(9);
-                $.ajax({
-                    type: "GET",
-                    url: "/get-station/" + 1,
-                    success: function(response) {
-                        $('.content').html('');
-                        $.each(response.nhaga, function(key, item) {
-                            $('.content').append('<input type="radio" name="place" id="' + item
-                                .thu_tu + '" checked />\
-                                    <div class="process">\
-                                        <label for="' + item.thu_tu + '" class="placeName">' + item.ten_nha_ga + '</label>\
-                                        <label for="' + item.thu_tu +
-                                '" class="line"><span class="tooltips">Tuyến <span>' +
-                                tuyen + '</span><span>' + item.thu_tu + '</span></span></label>\
-                                    </div>\
-                                     ');
-                        });
-                        $('.loader').hide();
-                    }
-                });
-
-            }
-
-            $(document).on('click', '.tentuyen', function(e) {
-                e.preventDefault();
-                $('.loader').show();
-                $('.title').text($(this).html());
-                var route_id = $(this).data('id')
                 $.ajax({
                     type: "GET",
                     url: "/get-route/" + route_id,
@@ -110,6 +75,8 @@
                     }
                 });
                 var tuyen = $('.title').text().substring(9);
+
+
                 if (route_id == '3') {
                     $.ajax({
                         type: "GET",
@@ -154,7 +121,9 @@
                     });
                 }
 
-            });
+            }
+
+           
 
 
         });

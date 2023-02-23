@@ -13,8 +13,9 @@ class Booking extends Model
         'tuyen',
         'ga_len',
         'ga_xuong',
+        'so_luong',
         'so_dien_thoai',
         'thanh_tien',
-        // 'thoi_gian_dat',
+        'thoi_gian_dat',
     ];
 }

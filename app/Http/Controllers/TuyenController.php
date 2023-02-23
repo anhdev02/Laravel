@@ -10,7 +10,7 @@ class TuyenController extends Controller
     }
 
     public function fecthroute(){
-        $routes = Tuyen::all();
+        $routes = Tuyen::get();
         return response()->json([
             'routes'=>$routes,
         ]);
@@ -18,6 +18,7 @@ class TuyenController extends Controller
 
     public function getRoute($id){
         $route = Tuyen::find($id);
+        session_start();
         return response()->json([
             'route' => $route,
         ]);

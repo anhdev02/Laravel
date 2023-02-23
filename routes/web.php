@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [TuyenController::class, 'index']);
+
 Route::get('fetch-routes', [TuyenController::class, 'fecthroute']);
 Route::get('get-route/{id}', [TuyenController::class, 'getRoute']);
 Route::get('get-station/{id}', [NhaGaController::class, 'LayNhaGa']);
@@ -17,7 +18,7 @@ Route::get('get-station/{id}', [NhaGaController::class, 'LayNhaGa']);
 Route::get('booking', [BookingController::class, 'index']);
 Route::get('fetch-booking', [BookingController::class, 'fetchbooking']);
 Route::get('get-bookings/{sdt}', [BookingController::class, 'getbooking']);
-Route::post('booking',[BookingController::class, 'store']);
+Route::post('bookings',[BookingController::class, 'store']);
 
 
 Route::get('check', [TraCuuDatVeController::class, 'index']);
